@@ -20,10 +20,10 @@ mongoose.connect(config.database);
 // MongoDB save data routes
 
 let profileid = randomid(6);
-let username = process.argv[2];
-let nickname = process.argv[2];
-let password = process.argv[4];
-let experience = process.argv[5];
+let username = 'cl_username';
+let nickname = 'InGameUsername';
+let password = 'UserPassword';
+let experience = 'Experience to start';
 
 // CRIAR UM NOVO USUÁRIO
 
