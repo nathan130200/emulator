@@ -20,13 +20,13 @@ mongoose.connect(config.database);
 // MongoDB save data routes
 
 let profileid = randomid(6);
-let username = "frnathan13";
-let nickname = "FRNathan13";
-let password = "usbw";
+let username = process.argv[2];
+let nickname = process.argv[2];
+let password = process.argv[4];
+let experience = process.argv[5];
 
 // CRIAR UM NOVO USUÁRIO
 
-/*
 let newUserGamer = new User({
     userid: randomid(5),
     profileid: profileid,
@@ -50,7 +50,8 @@ let profileadd = new Profile({
   height: '1',
   head: 'default_head_4',
   current_class: '0',
-  experience: '264400',
+  experience: experience,
+//[old]experience: '264400'
   pvp_rating_points: '0',
   banner_badge: '4294967295',
   banner_mark: '4294967295',
@@ -78,12 +79,11 @@ profileadd.save(function(err) {
 	console.log(profileadd);
 });
 
-*/
-
 // CRIAR NOVA MISSAO DE COOP
 
 
-let afiraAfricaBase =  new Missions({
+let newMissionGame =  new Missions({
+  
   mission_key: '27b68559-cfbe-4efd-ba09-f4240279fb99',
   no_teams: '1',
   name: '@na_mission_path01_1',
@@ -130,7 +130,9 @@ let afiraAfricaBase =  new Missions({
     gold: '6'
   }
 
-}).save(function(err) {
+});
+
+newMissionGame.save(function(err) {
 	console.log('Added new mission.');
 });
 
@@ -157,7 +159,9 @@ let snowMissionSurvival02 = new Missions({
 			}
 		]
 	}
-}).save(function(err){
+});
+
+snowMissionSurvival02.save(function(err){
 	console.log('Missão: "survival/snow_fortress_base" adicionado!');
 });
 
