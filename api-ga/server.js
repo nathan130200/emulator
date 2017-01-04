@@ -19,37 +19,45 @@ mongoose.connect(config.database);
 
 // MongoDB save data routes
 
+let profileid = randomid(6);
+let username = "frnathan13";
+let nickname = "FRNathan13";
+let password = "usbw";
+
+// CRIAR UM NOVO USUÁRIO
+
+/*
 let newUserGamer = new User({
     userid: randomid(5),
-    profileid: randomid(6),
-    username: 'fuck',
-    nickname: '-Fuck-',
+    profileid: profileid,
+    username: username,
+    nickname: nickname,
     affiliateid: 'CYT000000000',
-    password: '12345',
-    email: 'fuck@warface.com',
+    password: password,
+    email: 'admin@warface.com',
     lang: 'pt-br'
 });
   
-// newUserGamer.save(function(err) {
-//    console.log('User added.');
-// });
+newUserGamer.save(function(err) {
+	console.log('User added.');
+});
 
 let profileadd = new Profile({
-  profileid: '608714', // profileid user
-  username: 'set',
-  nickname: '-setTimeout-',
+  profileid: profileid, // profileid user
+  username: username,
+  nickname: nickname,
   gender: 'male',
   height: '1',
   head: 'default_head_4',
   current_class: '0',
-  experience: '17364000',
+  experience: '264400',
   pvp_rating_points: '0',
   banner_badge: '4294967295',
   banner_mark: '4294967295',
   banner_stripe: '4294967295',
-  game_money: '8500000',
-  cry_money: '2500000',
-  crown_money: '800000',
+  game_money: '24000',
+  cry_money: '13000',
+  crown_money: '13000',
   items: [{
     id: '1', 
     name: 'mk01', 
@@ -66,13 +74,16 @@ let profileadd = new Profile({
   }]
 });
 
-// profileadd.save(function(err) {
-//   console.log(profileadd);
-// });
+profileadd.save(function(err) {
+	console.log(profileadd);
+});
+
+*/
+
+// CRIAR NOVA MISSAO DE COOP
 
 
-let newMissionGame =  new Missions({
-  
+let afiraAfricaBase =  new Missions({
   mission_key: '27b68559-cfbe-4efd-ba09-f4240279fb99',
   no_teams: '1',
   name: '@na_mission_path01_1',
@@ -119,8 +130,58 @@ let newMissionGame =  new Missions({
     gold: '6'
   }
 
+}).save(function(err) {
+	console.log('Added new mission.');
 });
 
-// newMissionGame.save(function(err) {
-//   console.log('Added new mission.');
-// });
+// survival/snow_fortress_base
+let snowMissionSurvival02 = new Missions({
+	mission_key: '1b3fcd0c-d624-41ae-b539-17564b921e70',
+	no_teams: '1',
+	name: '@snow_mission_survival_02',
+	setting: 'survival/snow_fortress_base',
+	mode: 'pve',
+	mode_name: '@PvE_game_mode_desc',
+	mode_icon: 'pve_icon',
+	description: '@snow_survival_mission_desc_02',
+	image: 'mapImgSurvivalSnow2',
+	difficulty: 'survival',
+	type: 'campaignsection2',
+	time_of_day: '14:20',
+	objectives:{
+		factor: '1',
+		obj: [
+			{
+				id: '0',
+				type: 'primary'
+			}
+		]
+	}
+}).save(function(err){
+	console.log('Missão: "survival/snow_fortress_base" adicionado!');
+});
+
+
+// zombie/zombie_base
+let zombieBase = new Missions({
+	mission_key: 'd3f6d949-60d5-4ef5-ae26-f4fce1421630',
+	no_teams: '1',
+	name: '@ct_mission_zombie',
+	setting: 'zombie/zombie_base',
+	mode: 'pve',
+	mode_name: '@PvE_game_mode_desc',
+	mode_icon: 'pve_icon',
+	description: '@zombie_mission_desc',
+	image: 'mapImgZSD1j_h',
+	difficulty: 'hard',
+	type: 'zombiehard',
+	time_of_day: '9:06',
+	objectives: {
+		factor: '1',
+		obj:[
+			{ id: '0', type: 'primary' }
+		]
+	}
+}).save(function(err){
+	console.log('Missão: "zombie/zombie_base" adicionado!');
+});
